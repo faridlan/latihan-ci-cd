@@ -26,4 +26,6 @@ jobs:
             USER_NAME : ${{ secrets.USER_NAME  }}
             
         run: |
-          whoami
+          mkdir test
+          cd test
+          touch test
