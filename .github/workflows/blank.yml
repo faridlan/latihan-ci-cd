@@ -1,9 +1,9 @@
-name: latihan CI/CD 
+name: CI/CD Latihan
 
 on:
   push:
-    branches:
-      - main
+    branches: 
+      - master 
 
 jobs:
 #First we will see the application build or not , then we will deploy in EC2
@@ -11,7 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+    
+
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2 
       - name: Deploy in EC2
         env:
             PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
@@ -19,6 +27,6 @@ jobs:
             USER_NAME : ${{ secrets.USER_NAME  }}
             
         run: |
-          mkdir test
-          cd test
-          touch test
+            mkidr test
+            cd test
+            touch test.txt
