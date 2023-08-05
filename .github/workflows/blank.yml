@@ -3,7 +3,7 @@ name: CI/CD Latihan
 on:
   push:
     branches: 
-      - master 
+      - main 
 
 jobs:
 #First we will see the application build or not , then we will deploy in EC2
